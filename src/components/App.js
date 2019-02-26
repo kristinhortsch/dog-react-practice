@@ -1,57 +1,32 @@
 import React, { Fragment, PureComponent } from 'react';
 import AddDogForm from './AddDogForm';
-import 'normalize-css';
+import Dogs from './Dogs';
 
 export default class App extends PureComponent {
   state = {
-    name: '', 
-    age: '',
-    weight: ''
+    dogs: []
   }
 
-  handleSubmit = ({ target }) => {
-    this.setState({ [target.name]: target.value });
+  addDog = dog => {
+    this.setState(state => {
+      return {
+        dogs: [...state.dogs, dog]
+      };
+    })
   }
-
+  
   render() {
-    const { 
-      name,
-      age,
-      weight
-    } = this.state;
+    const { dogs } = this.state;
     return (
       <Fragment>
         <h1>WELCOME TO DOG PARADISE</h1>
         <AddDogForm
-          name={name}
-          age={age}
-          weight={weight}
-          handleSubmit={this.handleSubmit}
+          dogs={dogs}
+          addDog={this.addDog}
         />
+        <Dogs  dogs={dogs}/>
       </Fragment>
     );
   }
 }
 
-
-// import React, { Fragment } from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Switch
-// } from 'react-router-dom';
-// import Container from './Container';
-
-// export default function App() {
-//   return (
-//     <Fragment>
-//       <Router>
-//         <Switch>
-//           <Route exact path='/' component={Container}/>
-//         </Switch>
-//       </Router>
-//     </Fragment>
-//   );
-
-
-// }
