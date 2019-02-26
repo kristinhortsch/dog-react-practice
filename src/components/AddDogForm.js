@@ -5,6 +5,7 @@ class AddDogForm extends PureComponent {
   static propTypes = {
     addDog: PropTypes.func.isRequired
   }
+
   state = {
     name: '',
     age: '',
@@ -52,5 +53,3 @@ class AddDogForm extends PureComponent {
 }
 
 export default AddDogForm;
-
-

@@ -24,9 +24,8 @@ export default class App extends PureComponent {
           dogs={dogs}
           addDog={this.addDog}
         />
-        <Dogs  dogs={dogs}/>
+        <Dogs dogs={dogs}/>
       </Fragment>
     );
   }
 }
-
